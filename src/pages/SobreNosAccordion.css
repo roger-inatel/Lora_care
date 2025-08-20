@@ -1,0 +1,129 @@
+body, h1, h2, h3, p, span {
+  color: #000000; /* Define the text color to black */
+}
+
+body {
+  background-color: #E0F7FA; /* Ensure the background is light blue */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Modern font stack */
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 4rem; /* Adjust font size for blog-like appearance */
+  font-weight: bold;
+  margin-bottom: 2rem; /* Reduce spacing for a tighter layout */
+}
+
+.blog-header {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.blog-header h1 {
+  font-size: 3.5rem; /* Slightly smaller for blog style */
+  color: #0056b3; /* Add a professional blue tone */
+}
+
+.blog-header p {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.accordion-item {
+  background-color: #FFFFFF; /* Ensure the accordion boxes are white */
+  color: #000000; /* Ensure text inside accordion boxes is black */
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  padding: 1.5rem; /* Increase padding for better spacing */
+  font-family: Arial, sans-serif; /* Ensure font is Arial */
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion-title {
+  font-size: 2rem; /* Increase font size for accordion titles */
+  font-weight: bold;
+  color: #0056b3;
+}
+
+.accordion-arrow {
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+  width: 32px; /* Increase arrow size */
+  height: 32px; /* Increase arrow size */
+}
+
+.accordion-item.active .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 1.5rem; /* Increase font size for content */
+  line-height: 1.8; /* Adjust line height for readability */
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+}
+
+.static-section {
+  background-color: #FFFFFF;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem; /* Increase padding for better spacing */
+  text-align: center;
+  margin-top: 3rem; /* Add more spacing above the static section */
+  font-family: Arial, sans-serif; /* Ensure font is Arial */
+}
+
+.static-section h2 {
+  font-size: 2rem; /* Slightly larger than the message */
+  font-weight: bold;
+}
+
+.static-section p {
+  font-size: 1.8rem; /* Increase font size */
+  font-weight: bold; /* Make text bold */
+}
+
+.static-section button {
+  padding: 1rem 2rem;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem; /* Increase font size for button text */
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem; /* Add more spacing above the button */
+}
+
+.static-section button:hover {
+  background-color: #218838;
+}

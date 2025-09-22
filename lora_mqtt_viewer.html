@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>LoRa MQTT Viewer</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    .card { display: inline-block; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+    .value { font-size: 2em; color: #007acc; }
+  </style>
+</head>
+<body>
+  <h1>Dados LoRa via MQTT</h1>
+  <div id="status" class="card">Aguardando dados...</div>
+
+  <script>
+    async function fetchData() {
+      try {
+        const res = await fetch("http://localhost:3000/api/data");
+        const data = await res.json();
+        
+        if (data && Object.keys(data).length > 0) {
+          document.getElementById("status").innerHTML = `
+            <div><strong>IR:</strong> <span class="value">${data.ir}</span></div>
+            <div><strong>RED:</strong> <span class="value">${data.red}</span></div>
+          `;
+        } else {
+          document.getElementById("status").innerText = "Nenhum dado recebido ainda...";
+        }
+      } catch (err) {
+        console.error("Erro ao buscar API:", err);
+        document.getElementById("status").innerText = "Erro ao buscar dados!";
+      }
+    }
+
+    // Atualiza a cada 2 segundos
+    setInterval(fetchData, 2000);
+    fetchData();
+  </script>
+</body>
+</html>

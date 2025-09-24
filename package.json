@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node mqtt_outro_wifi.js",
+    "dev": "node mqtt_outro_wifi.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

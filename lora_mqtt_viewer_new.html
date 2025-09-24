@@ -8,15 +8,84 @@
       font-family: Arial, sans-serif; 
       margin: 0;
       padding: 20px;
-      background: #f8f9fa;
+      background: #f5f5f5;
       min-height: 100vh;
     }
     
-    /* === HEADER === */
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+    
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .card {
+      padding: 30px;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .bmp-card {
+      border-left: 6px solid #e74c3c;
+    }
+    
+    .spo2-card {
+      border-left: 6px solid #3498db;
+    }
+    
+    .label {
+      font-size: 1.2em;
+      color: #666;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .value {
+      font-size: 3.5em;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    
+    .bmp-value { color: #e74c3c; }
+    .spo2-value { color: #3498db; }
+    
+    .unit {
+      font-size: 1.2em;
+      color: #999;
+    }
+    
+    .raw-data {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      font-size: 0.9em;
+      color: #666;
+      text-align: center;
+    }
+    
+    /* === LAYOUT PRINCIPAL === */
     .header {
       text-align: center;
-      margin-bottom: 30px;
-      padding: 30px;
+      margin-bottom: 20px;
+      padding: 20px;
       background: white;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -24,23 +93,22 @@
     
     .header h1 {
       margin: 0;
-      font-size: 2.5em;
-      color: #2A7DE1;
-      font-weight: 700;
+      font-size: 2.2em;
+      color: #333;
+      font-weight: 600;
     }
     
     .header p {
-      margin: 10px 0 0 0;
+      margin: 8px 0 0 0;
       color: #666;
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
     
-    /* === LAYOUT PRINCIPAL === */
     .main-layout {
       display: grid;
       grid-template-columns: 2fr 1fr;
-      gap: 25px;
-      max-width: 1400px;
+      gap: 30px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
@@ -60,12 +128,8 @@
     
     /* === PAINEL LATERAL (DIREITA) === */
     .sidebar {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: stretch;
-      padding: 20px;
-      width: 100%;
+      transform: scale(0.95);
+      transform-origin: top;
     }
     
     /* === STATUS BANNER === */
@@ -131,15 +195,15 @@
     .timer-box {
       padding: 30px;
       border-radius: 16px;
-      background: linear-gradient(135deg, #00c4aa, #0093cc);
+      background: linear-gradient(135deg, #00d4aa, #00a3cc);
       color: white;
-      box-shadow: 0 8px 20px rgba(0, 196, 170, 0.25);
+      box-shadow: 0 8px 20px rgba(0, 212, 170, 0.3);
       text-align: center;
       transition: all 0.3s ease;
     }
     
     .timer-box.active {
-      transform: scale(1.02);
+      transform: scale(1.05);
     }
     
     .timer-header {
@@ -223,15 +287,15 @@
     }
     
     .vital-card.active {
-      transform: scale(1.02);
+      transform: scale(1.05);
     }
     
     .bpm-card {
-      border-left: 6px solid #d63447;
+      border-left: 6px solid #e74c3c;
     }
     
     .spo2-card {
-      border-left: 6px solid #2980b9;
+      border-left: 6px solid #3498db;
     }
     
     .error-card {
@@ -252,8 +316,8 @@
       margin: 15px 0;
     }
     
-        .bpm-value { color: #d63447; }
-    .spo2-value { color: #2980b9; }
+    .bpm-value { color: #e74c3c; }
+    .spo2-value { color: #3498db; }
     .error-value { color: #f39c12 !important; }
     
     .vital-unit {
@@ -280,106 +344,86 @@
     
     /* === DADOS DA SESSÃO === */
     .session-box {
-      padding: 25px 30px;
+      padding: 25px;
       border-radius: 16px;
-      background: linear-gradient(135deg, #e6f0fa, #cce0f6);
-      color: #2c3e50;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(135deg, #4a5568, #2d3748);
+      color: white;
+      box-shadow: 0 8px 20px rgba(74, 85, 104, 0.4);
       transition: all 0.3s ease;
       height: fit-content;
-      transform: scale(1.2);
-      transform-origin: center;
-      margin: 30px auto 30px 20px;
-      max-width: 400px;
-      width: calc(100% - 40px);
-      display: block;
-      position: relative;
-      left: 55%;
-      transform: translateX(-50%) scale(1.2);
     }
     
     .session-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 25px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid rgba(44, 62, 80, 0.15);
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
     .session-title {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 1.4em;
-      font-weight: 700;
-      color: #2c3e50;
+      gap: 10px;
+      font-size: 1.3em;
+      font-weight: 600;
     }
     
     .session-badge {
-      background: rgba(52, 152, 219, 0.15);
-      color: #2980b9;
-      padding: 6px 12px;
+      background: rgba(139, 92, 246, 0.2);
+      color: #a78bfa;
+      padding: 4px 12px;
       border-radius: 12px;
       font-size: 0.8em;
-      font-weight: 600;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     
     .session-subtitle {
       font-size: 0.9em;
-      opacity: 0.8;
-      margin-top: 5px;
-      color: #5a6c7d;
+      opacity: 0.7;
+      margin-top: 4px;
     }
     
     .session-data {
       display: grid;
-      gap: 14px;
-      width: 100%;
-      margin: 0 auto;
+      gap: 12px;
     }
     
     .session-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(255, 255, 255, 0.4);
-      padding: 14px 18px;
+      background: rgba(255,255,255,0.05);
+      padding: 12px 16px;
       border-radius: 10px;
       transition: all 0.2s ease;
-      border: 1px solid rgba(52, 152, 219, 0.1);
     }
     
     .session-item:hover {
-      background: rgba(255, 255, 255, 0.6);
-      border-color: rgba(52, 152, 219, 0.2);
+      background: rgba(255,255,255,0.08);
     }
     
     .session-item-left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
     
     .session-icon {
-      font-size: 1.3em;
-      color: #3498db;
+      font-size: 1.2em;
     }
     
     .session-label {
-      font-size: 1.05em;
+      font-size: 0.95em;
       opacity: 0.9;
-      color: #34495e;
-      font-weight: 500;
     }
     
     .session-value {
-      font-weight: 700;
+      font-weight: 600;
       font-family: 'Courier New', monospace;
-      font-size: 1.1em;
-      color: #2c3e50;
     }
     
     .session-value.empty {
@@ -388,90 +432,53 @@
     
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.05); }
-    }
-    
-    /* === STATUS BANNER === */
-    .status-box {
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      transition: all 0.3s ease;
-      border-left: 8px solid;
-      margin-bottom: 20px;
-    }
-    
-    .status-box.not-identified {
-      background: linear-gradient(135deg, #fee, #fdd);
-      border-left-color: #e74c3c;
-      color: #c0392b;
-    }
-    
-    .status-box.identified {
-      background: linear-gradient(135deg, #efe, #dfd);
-      border-left-color: #27ae60;
-      color: #1e8449;
-    }
-    
-    .status-icon {
-      font-size: 2em;
-      opacity: 0.8;
-    }
-    
-    .status-content {
-      flex: 1;
-    }
-    
-    .status-title {
-      font-size: 1.4em;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-    
-    .status-description {
-      font-size: 0.95em;
-      opacity: 0.8;
-    }
-    
-    .status-indicator {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    
-    .status-box.not-identified .status-indicator {
-      background: #e74c3c;
-    }
-    
-    .status-box.identified .status-indicator {
-      background: #27ae60;
-    }
-    
-    /* === ALERTAS === */
-    .alerts-section {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-    
-    .alert-banner {
-      padding: 15px 20px;
-      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-      border: 1px solid #ffeaa7;
-      border-radius: 10px;
-      color: #856404;
-      font-size: 1.1em;
-      font-weight: 500;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    
+    /* === CONTAINER E CARDS BÁSICOS === */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    
+    .card {
+      padding: 30px;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .label {
+      font-size: 1.2em;
+      color: #666;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .value {
+      font-size: 3.5em;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    
+    .unit {
+      font-size: 1.2em;
+      color: #999;
+    }
+    
+    .raw-data {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      font-size: 0.9em;
+      color: #666;
+      text-align: center;
     }
   </style>
 </head>
@@ -533,11 +540,6 @@
           ⚠️ Dedo fora do sensor / Leitura inválida
         </div>
       </div>
-      
-      <!-- Debug: Raw Data -->
-      <div style="text-align: center; margin-top: 20px; padding: 15px; background: white; border-radius: 10px; font-size: 0.9em; color: #666;">
-        <div id="rawData">Dados RAW: Aguardando sensor...</div>
-      </div>
     </div>
     
     <!-- === PAINEL LATERAL (DIREITA) === -->
@@ -551,7 +553,7 @@
             </div>
             <div class="session-subtitle">Última sessão</div>
           </div>
-          <div class="session-badge" id="sessionBadge">ÚLTIMA SESSÃO</div>
+          <div class="session-badge" id="sessionBadge">📋 ÚLTIMA SESSÃO</div>
         </div>
         
         <div class="session-data">
@@ -606,6 +608,11 @@
       </div>
     </div>
   </div>
+  
+  <!-- Debug: Raw Data -->
+  <div class="raw-data" id="rawData" style="text-align: center; margin-top: 20px; padding: 15px; background: white; border-radius: 10px; font-size: 0.9em; color: #666; max-width: 1200px; margin: 20px auto 0;">
+    <strong>Dados RAW:</strong> Aguardando sensor...
+  </div>
 
   <script>
     // === CONFIGURAÇÕES DE CÁLCULO ===
@@ -624,10 +631,18 @@
     const statusIndicator = document.getElementById('statusIndicator');
     
     // Elementos do timer
+    const timerBox = document.getElementById('timerBox');
     const timerDisplay = document.getElementById('timerDisplay');
     const timerStatus = document.getElementById('timerStatus');
     const connectionDot = document.getElementById('connectionDot');
     const connectionText = document.getElementById('connectionText');
+    
+    // Elementos dos vitais
+    const bpmCard = document.getElementById('bpmCard');
+    const spo2Card = document.getElementById('spo2Card');
+    const bpmValue = document.getElementById('bpmValue');
+    const spo2Value = document.getElementById('spo2Value');
+    const alertBanner = document.getElementById('alertBanner');
     
     // === VARIÁVEIS DO TIMER ===
     let timerInterval = null;
@@ -652,7 +667,44 @@
     const sessionAvgSpo2 = document.getElementById('sessionAvgSpo2');
     const sessionDuration = document.getElementById('sessionDuration');
     const sessionBadge = document.getElementById('sessionBadge');
+
+    /**
+     * Calcula BPM baseado nos valores IR
+     * Analogia: Monitoramento das oscilações rítmicas (componente AC)
+     */
+    function calculateBPM(irValue, redValue) {
+      if (!irValue || !redValue) return null;
+      
+      // Conversão simples baseada na média dos valores
+      // Em um sistema real, seria análise de frequência dos picos
+      const avgValue = (irValue + redValue) / 2;
+      const bpm = Math.round(avgValue / BPM_CONVERSION_FACTOR);
+      
+      // Limitar a faixa realista (40-200 BPM)
+      return Math.max(40, Math.min(200, bpm));
+    }
     
+    /**
+     * Calcula SpO₂ baseado na razão IR/RED
+     * Analogia: Lei de Beer-Lambert - Razão de absorção dos comprimentos de onda
+     */
+    function calculateSpO2(irValue, redValue) {
+      if (!irValue || !redValue) return null;
+      
+      // Cálculo simplificado da razão R
+      // Em sistema real: R = (AC_RED/DC_RED) / (AC_IR/DC_IR)
+      const ratio = redValue / irValue;
+      
+      // Fórmula de calibração aproximada: SpO₂ = 110 - 25 × R
+      // Ajustada para nossos valores de sensor
+      let spo2 = 110 - (25 * ratio);
+      
+      // Normalizar para faixa realista (70-100%)
+      spo2 = Math.max(70, Math.min(100, Math.round(spo2)));
+      
+      return spo2;
+    }
+
     /**
      * Atualiza a caixa de status do paciente
      * @param {boolean} isIdentified - Se o paciente está identificado
@@ -697,6 +749,11 @@
       timerStartTime = Date.now();
       elapsedSeconds = 0;
       
+      // Aplicar escala ativa
+      timerBox.classList.add('active');
+      bpmCard.classList.add('active');
+      spo2Card.classList.add('active');
+      
       // Iniciar nova sessão
       startSession();
       
@@ -718,6 +775,11 @@
       
       console.log('⏹️ Parando timer de monitoramento');
       isMonitoring = false;
+      
+      // Remover escala ativa
+      timerBox.classList.remove('active');
+      bpmCard.classList.remove('active');
+      spo2Card.classList.remove('active');
       
       // Finalizar sessão atual
       endSession();
@@ -795,8 +857,8 @@
       
       // Atualizar badge para sessão atual
       sessionBadge.textContent = '🔴 SESSÃO ATIVA';
-      sessionBadge.style.background = 'rgba(214, 52, 71, 0.15)';
-      sessionBadge.style.color = '#a93226';
+      sessionBadge.style.background = 'rgba(34, 197, 94, 0.2)';
+      sessionBadge.style.color = '#4ade80';
     }
     
     /**
@@ -836,9 +898,9 @@
       updateSessionDisplay(sessionData);
       
       // Resetar badge
-      sessionBadge.textContent = 'ÚLTIMA SESSÃO';
-      sessionBadge.style.background = 'rgba(52, 152, 219, 0.15)';
-      sessionBadge.style.color = '#2980b9';
+      sessionBadge.textContent = '📋 ÚLTIMA SESSÃO';
+      sessionBadge.style.background = 'rgba(139, 92, 246, 0.2)';
+      sessionBadge.style.color = '#a78bfa';
     }
     
     /**
@@ -881,52 +943,14 @@
         }
       });
     }
-    
-    /**
-     * Calcula BPM baseado nos valores IR
-     * Analogia: Monitoramento das oscilações rítmicas (componente AC)
-     */
-    function calculateBPM(irValue, redValue) {
-      if (!irValue || !redValue) return null;
-      
-      // Conversão simples baseada na média dos valores
-      // Em um sistema real, seria análise de frequência dos picos
-      const avgValue = (irValue + redValue) / 2;
-      const bpm = Math.round(avgValue / BPM_CONVERSION_FACTOR);
-      
-      // Limitar a faixa realista (40-200 BPM)
-      return Math.max(40, Math.min(200, bpm));
-    }
-    
-    /**
-     * Calcula SpO₂ baseado na razão IR/RED
-     * Analogia: Lei de Beer-Lambert - Razão de absorção dos comprimentos de onda
-     */
-    function calculateSpO2(irValue, redValue) {
-      if (!irValue || !redValue) return null;
-      
-      // Cálculo simplificado da razão R
-      // Em sistema real: R = (AC_RED/DC_RED) / (AC_IR/DC_IR)
-      const ratio = redValue / irValue;
-      
-      // Fórmula de calibração aproximada: SpO₂ = 110 - 25 × R
-      // Ajustada para nossos valores de sensor
-      let spo2 = 110 - (25 * ratio);
-      
-      // Normalizar para faixa realista (70-100%)
-      spo2 = Math.max(70, Math.min(100, Math.round(spo2)));
-      
-      return spo2;
-    }
-    
+
     async function fetchData() {
       try {
         const res = await fetch("http://localhost:3000/api/data");
         const data = await res.json();
         
         if (data && Object.keys(data).length > 0) {
-          
-          // === LÓGICA DE REAÇÃO AO STATUS ===
+          console.log('📡 Dados recebidos:', data);
           
           // Atualizar status de conexão
           updateConnectionStatus(true);
@@ -943,28 +967,26 @@
             // Atualizar status do paciente
             updatePatientStatus(false);
             
+            // Mostrar alerta
+            alertBanner.style.display = 'block';
+            alertBanner.textContent = '⚠️ Dedo fora do sensor / Leitura inválida';
+            
             // Limpar os valores
-            document.getElementById("bpmValue").textContent = '—';
-            document.getElementById("spo2Value").textContent = '—';
+            bpmValue.textContent = '--';
+            spo2Value.textContent = '--';
             
             // Mudar o estilo - Aplicar tema Laranja/Amarelo
-            const bpmCard = document.querySelector('.bpm-card, .error-card');
-            const spo2Card = document.querySelector('.spo2-card, .error-card');
-            const bpmValue = document.getElementById("bpmValue");
-            const spo2Value = document.getElementById("spo2Value");
-            
-            // Remover classes normais e adicionar classes de erro
-            bpmCard.classList.remove('bpm-card');
+            bpmCard.classList.remove('bpm-card', 'active');
             bpmCard.classList.add('error-card');
-            spo2Card.classList.remove('spo2-card');
+            spo2Card.classList.remove('spo2-card', 'active');
             spo2Card.classList.add('error-card');
             
-            bpmValue.classList.remove('bpm-value');
+            bpmValue.classList.remove('bmp-value');
             bpmValue.classList.add('error-value');
             spo2Value.classList.remove('spo2-value');
             spo2Value.classList.add('error-value');
             
-            // Alerta ao usuário
+            // Atualizar dados RAW
             document.getElementById("rawData").innerHTML = `
               <strong>⚠️ DEDO FORA DO SENSOR / LEITURA INVÁLIDA</strong>
             `;
@@ -981,13 +1003,16 @@
             // Atualizar status do paciente
             updatePatientStatus(true);
             
+            // Esconder alerta
+            alertBanner.style.display = 'none';
+            
             // Calcular e Exibir valores normalmente
             const bpm = calculateBPM(data.ir, data.red);
             const spo2 = calculateSpO2(data.ir, data.red);
             
             // Atualizar displays
-            document.getElementById("bpmValue").textContent = bpm || '--';
-            document.getElementById("spo2Value").textContent = spo2 || '--';
+            bpmValue.textContent = bpm || '--';
+            spo2Value.textContent = spo2 || '--';
             
             // Adicionar valores à sessão atual
             if (bpm && spo2) {
@@ -995,16 +1020,13 @@
             }
             
             // Restaurar o estilo - Aplicar tema Vermelho/Azul original
-            const bpmCard = document.querySelector('.bpm-card, .error-card');
-            const spo2Card = document.querySelector('.spo2-card, .error-card');
-            const bpmValue = document.getElementById("bpmValue");
-            const spo2Value = document.getElementById("spo2Value");
-            
-            // Remover classes de erro e restaurar classes originais
             bpmCard.classList.remove('error-card');
             bpmCard.classList.add('bpm-card');
+            if (isMonitoring) bpmCard.classList.add('active');
+            
             spo2Card.classList.remove('error-card');
             spo2Card.classList.add('spo2-card');
+            if (isMonitoring) spo2Card.classList.add('active');
             
             bpmValue.classList.remove('error-value');
             bpmValue.classList.add('bpm-value');
@@ -1028,8 +1050,8 @@
             const bpm = calculateBPM(data.ir, data.red);
             const spo2 = calculateSpO2(data.ir, data.red);
             
-            document.getElementById("bpmValue").textContent = bpm || '--';
-            document.getElementById("spo2Value").textContent = spo2 || '--';
+            bpmValue.textContent = bmp || '--';
+            spo2Value.textContent = spo2 || '--';
             
             document.getElementById("rawData").innerHTML = `
               <strong>Dados RAW:</strong> 
@@ -1048,8 +1070,8 @@
           }
           
           updatePatientStatus(false);
-          document.getElementById("bpmValue").textContent = '--';
-          document.getElementById("spo2Value").textContent = '--';
+          bpmValue.textContent = '--';
+          spo2Value.textContent = '--';
           document.getElementById("rawData").textContent = 'Nenhum dado recebido ainda...';
         }
       } catch (err) {
@@ -1065,8 +1087,8 @@
         
         // Erro de conexão - paciente não identificado
         updatePatientStatus(false);
-        document.getElementById("bpmValue").textContent = '--';
-        document.getElementById("spo2Value").textContent = '--';
+        bpmValue.textContent = '--';
+        spo2Value.textContent = '--';
         document.getElementById("rawData").textContent = 'Erro ao conectar com sensor!';
       }
     }

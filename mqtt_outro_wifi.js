@@ -42,14 +42,35 @@ client.on('message', (topic, message) => {
             // Tenta parsear como JSON
             const data = JSON.parse(msg);
 
-            if (data.to && data.ir && data.red) {
+            // ATUALIZADO: Aceitar novo formato com campo "status"
+            // Verificar se tem status E (ir e red) OU se tem o formato antigo
+            if (data.status && 
+                typeof data.ir !== 'undefined' && 
+                typeof data.red !== 'undefined') {
+                
                 latestData = {
+                    status: data.status,
+                    to: data.to || null,
+                    from: data.from || null,
+                    ir: parseInt(data.ir),
+                    red: parseInt(data.red),
+                    msg: data.msg || null
+                };
+                console.log('✅ Dados atualizados (novo formato):', latestData);
+            } 
+            // Fallback para formato antigo
+            else if (typeof data.to !== 'undefined' && 
+                typeof data.ir !== 'undefined' && 
+                typeof data.red !== 'undefined') {
+                
+                latestData = {
+                    status: "OK", // Assumir OK para formato antigo
                     to: data.to,
                     from: data.from,
                     ir: parseInt(data.ir),
                     red: parseInt(data.red)
                 };
-                console.log('✅ Dados atualizados:', latestData);
+                console.log('✅ Dados atualizados (formato antigo):', latestData);
             } else {
                 console.warn('⚠️ JSON recebido não tem todos os campos necessários.');
             }
